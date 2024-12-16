@@ -37,6 +37,13 @@ class SmoothRectangleBorder extends OutlinedBorder {
         borderRadius.resolve(textDirection).toRRect(rect).deflate(side.width));
   }
 
+  @override
+  int get hashCode => Object.hash(
+    side,
+    borderRadius,
+    smoothness,
+  );
+
   Path getPath(RRect rrect) {
     var path = Path();
     if (smoothness == 0 || borderRadius == BorderRadius.zero) {
